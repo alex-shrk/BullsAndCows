@@ -4,7 +4,7 @@
 .center {
 
     margin: auto;
-    width: 60%;
+
     /*border: 3px solid #73AD21;*/
     padding: 10px;
     border-collapse: collapse;
@@ -35,21 +35,34 @@ input[type=submit]:hover {
     background-color: #45a049;
 }
 
-div {
 
+/*********************************************************************************/
+/* divs                                                         */
+/*********************************************************************************/
+
+div {
+    text-align: center;
     border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
+
 }
 
+#inputPanel{
+    margin-left: auto;
+    float:left;
+}
+#resultPanel{
+    margin-right: auto;
+    float:right;
+}
 /*********************************************************************************/
 /* Tables                                                           */
 /*********************************************************************************/
 
 table {
+
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 50%;
 }
 
 th {
@@ -70,6 +83,38 @@ td {
     background-color: #eeffef;
     color: #000000;
 }
+
+
+
+/*********************************************************************************/
+/* Buttons                                                         */
+/*********************************************************************************/
+
+.inputBtn{
+    border: 2px solid green;
+    background-color: white;
+    color:black;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-size: medium;
+}
+.inputBtn:hover{
+    background-color: green;
+    color:white;
+}
+
+#resetBtn{
+    background-color: red;
+    border: none;
+}
+#sendBtn{
+    background-color: green;
+    border: none;
+}
+
+
+
+
 
 
 

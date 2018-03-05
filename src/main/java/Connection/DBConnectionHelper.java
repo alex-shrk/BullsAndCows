@@ -1,4 +1,4 @@
-package Servlets;
+package Connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -51,15 +51,6 @@ public class DBConnectionHelper {
             return connection;
         }
 
-        /*public Connection getConnection(){
-            if (this.connection==null)
-                this.connection = createConnection();
-            return this.connection;
-        }
-        public void closeConnection() throws SQLException {
-            if (connection != null)
-                connection.close();
-        }*/
     }
 
 

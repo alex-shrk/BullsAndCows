@@ -1,5 +1,7 @@
 package Servlets;
 
+import Connection.DBConnectionHelper.DBConnectionManager;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,22 +18,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+import static Connection.DBConnectionHelper.getDBConnectionManager;
+
 
 public class StartGame extends HttpServlet {
     final private Integer lengthCombination = 4;
-    //strange solution
-    private int[] generateCombination1(){
-        int[] combination = new int[4*lengthCombination];
-        Random random = new Random();
-        do {
-            for(int i=0;i<combination.length;i++)
-                combination[i]=random.nextInt(10);
-            combination = Arrays.stream(combination).distinct().limit(4).toArray();
-        }
-
-        while (combination.length!=lengthCombination);
-        return combination;
-    }
     private int[] generateCombination(){
         int[] combination = new int [lengthCombination];
         List<Integer> digits = new ArrayList<>(10);
@@ -59,7 +50,7 @@ public class StartGame extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
 
-        DBConnectionHelper.DBConnectionManager db = DBConnectionHelper.getDBConnectionManager();
+        DBConnectionManager db = getDBConnectionManager();
         try(Connection connection = db.getConnection()) {
             HttpSession session = req.getSession();
 

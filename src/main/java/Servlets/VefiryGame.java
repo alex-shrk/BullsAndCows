@@ -1,5 +1,7 @@
 package Servlets;
 
+import Connection.DBConnectionHelper.DBConnectionManager;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,9 +13,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
+
+import static Connection.DBConnectionHelper.getDBConnectionManager;
 
 
 public class VefiryGame extends HttpServlet {
@@ -72,7 +75,7 @@ public class VefiryGame extends HttpServlet {
 
         if (answer.equals("4Б0К")) {
 
-            DBConnectionHelper.DBConnectionManager db = DBConnectionHelper.getDBConnectionManager();
+            DBConnectionManager db = getDBConnectionManager();
             try(Connection connection = db.getConnection()) {
                 Long idUser = (Long) session.getAttribute("userId");
 

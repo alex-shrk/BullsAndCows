@@ -1,6 +1,8 @@
 package Servlets;
 
 
+import Connection.DBConnectionHelper.DBConnectionManager;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +15,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import static Connection.DBConnectionHelper.getDBConnectionManager;
+
 
 public class Login extends HttpServlet {
     @Override
@@ -24,7 +28,7 @@ public class Login extends HttpServlet {
         String password = req.getParameter("userPsw");
 
 
-        DBConnectionHelper.DBConnectionManager db = DBConnectionHelper.getDBConnectionManager();
+        DBConnectionManager db = getDBConnectionManager();
         try( Connection connection = db.getConnection()) {
 
 

@@ -1,5 +1,7 @@
 package Servlets;
 
+import Connection.DBConnectionHelper.DBConnectionManager;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +13,8 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import static Connection.DBConnectionHelper.getDBConnectionManager;
 
 
 public class Register extends HttpServlet {
@@ -25,7 +29,7 @@ public class Register extends HttpServlet {
         String password = (String)req.getParameter("userPsw");
         String name = (String)req.getParameter("userName");
 
-        DBConnectionHelper.DBConnectionManager db = DBConnectionHelper.getDBConnectionManager();
+        DBConnectionManager db = getDBConnectionManager();
         try(Connection connection = db.getConnection()) {
 
 

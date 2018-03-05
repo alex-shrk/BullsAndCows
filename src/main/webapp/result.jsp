@@ -9,25 +9,24 @@
     <title>Результат игры</title>
 </head>
 <body>
-<h2>Comp combination:
-    <%=(String) session.getAttribute("compCombString")%>
-</h2>
+
 
 
 <%
     if (session.getAttribute("counterTryes") != null)
 %>
 <h3>Игра окончена</h3>
-<h3>Вы угадали комбинацию компьютера за <%=(int) session.getAttribute("counterTryes")%></h3>
+<h3>Вы угадали комбинацию компьютера за число попыток:<%=(int) session.getAttribute("counterTryes")%></h3>
 
 
 <% List<String[]> userHistory;
     if (session.getAttribute("userComboHistory") != null) {
 %>
+<h3>История ходов</h3>
 <table>
     <tr>
-        <th>Номер попытки</th>
         <th>Комбинация</th>
+        <th>Результат</th>
     </tr>
     <%
 
