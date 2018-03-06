@@ -8,7 +8,9 @@ function buttonHandler(id, value) {
 
 function resetCombo() {
     document.inputCombo.reset();
-    document.getElementById("button0").prop("disabled",null);
+    for (var i=0;i<=9;i++) {
+        document.getElementById("button"+i).disabled = false;
+    }
 
 }
 

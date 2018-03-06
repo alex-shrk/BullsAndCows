@@ -102,6 +102,10 @@ td {
     background-color: green;
     color:white;
 }
+.inputBtn:disabled{
+    border: none;
+    color:gray;
+}
 
 #resetBtn{
     background-color: red;

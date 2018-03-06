@@ -34,7 +34,7 @@ CREATE SEQUENCE "userIdSeq"
  INCREMENT 1
  MINVALUE 0
  MAXVALUE 2147483647
- START 6
+ START 1
  CACHE 1;
 SELECT setval('"public"."userIdSeq"', 6, true);
 
