@@ -23,11 +23,9 @@ public class Register extends HttpServlet {
 
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
-        PrintWriter out = resp.getWriter();
-        HttpSession session = req.getSession();
-        String login = (String)req.getParameter("userLogin");
-        String password = (String)req.getParameter("userPsw");
-        String name = (String)req.getParameter("userName");
+        String login = req.getParameter("userLogin");
+        String password = req.getParameter("userPsw");
+        String name = req.getParameter("userName");
 
         DBConnectionManager db = getDBConnectionManager();
         try(Connection connection = db.getConnection()) {
@@ -43,19 +41,12 @@ public class Register extends HttpServlet {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/login");
             rd.forward(req,resp);
 
-
-
-
-
         } catch (SQLException e1) {
             e1.printStackTrace();
         }
 
 
 
-
-       /* RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/index.jsp");
-        dispatcher.forward(req,resp);*/
 
     }
 }

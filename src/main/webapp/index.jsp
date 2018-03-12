@@ -1,23 +1,38 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<script src="scripts/Verifier.js"></script>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<script src="js/index.js"></script>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <title>Быки и коровы</title>
 </head>
-<body class="center">
+<body>
 
-<H3> Добро пожаловать в игру "Быки и коровы"</H3>
-<div>
-    <form id=loginForm action="login" method="post" class="center">
-        <input class="userForm" id="userLogin" name="userLogin"  type="text" placeholder="Логин">
-        <input class="userForm" id="userPsw" name="userPsw"  type="password"  placeholder="Пароль">
-        <input class="userForm" id="loginBtn" name="loginBtn" type="button" value="Войти" onclick="vefiryAndLogin()"/>
+<div class="header">
+    <H2> Добро пожаловать в игру "Быки и коровы"</H2>
+</div>
+
+<div class="loginAndRegister">
+    <form id=loginForm action="login" method="post">
+        <div>
+            <input class="userForm" id="userLogin" name="userLogin" type="text" placeholder="Логин">
+
+        </div>
+        <div>
+            <input class="userForm" id="userPsw" name="userPsw" type="password" placeholder="Пароль">
+        </div>
+
     </form>
-    <form action="registration.jsp" method="post" class="center">
-        <input type="submit" value="Register">
-    </form>
+    <div>
+        <form action="registration.jsp" method="post">
+        <input class="userForm" id="loginBtn" name="loginBtn" type="button" value="Войти"
+               onclick="vefiryAndLogin()"/>
+
+            <input id="registerBtn" type="submit" value="Регистрация">
+        </form>
+    </div>
+
+
 </div>
 </body>
 </html>

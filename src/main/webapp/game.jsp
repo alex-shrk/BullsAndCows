@@ -1,7 +1,8 @@
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Collection" %>
+<%@ page import="java.util.Collections" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<script src="scripts/Handler.js"></script>
-<script src="scripts/Verifier.js"></script>
+<script src="js/game.js"></script>
 <html>
 <head>
     <title>Быки и коровы</title>
@@ -10,15 +11,23 @@
 </head>
 <body>
 
-<h2>Пользователь:
-    <%=(String) session.getAttribute("userName")%>
-</h2>
+<div class="header">
+    <h2>Пользователь:
+        <%=(String) session.getAttribute("userName")%>
+    </h2>
 
-<h2>Comp combination:
-    <%=(String) session.getAttribute("compCombString")%>
-</h2>
+    <h2>Comp combination:
+        <%=(String) session.getAttribute("compCombString")%>
+    </h2>
+    <%
+        if (session.getAttribute("counterTryes") != null && !session.getAttribute("counterTryes").equals(0))
+    %>
+    <h3>Число попыток:<%=(int) session.getAttribute("counterTryes")%>
+    </h3>
+</div>
 
-<div id="inputPanel" align="center">
+
+<div class="leftPanel" align="center">
     <form id="inputCombo" name="inputCombo" method="post" action="verifyGame">
 
 
@@ -63,13 +72,9 @@
     </form>
 </div>
 
-<div id="resultPanel" align="center">
+<div class="rightPanel" >
 
-    <%
-        if (session.getAttribute("counterTryes") != null && !session.getAttribute("counterTryes").equals(0))
-    %>
-    <h3>Число попыток:<%=(int) session.getAttribute("counterTryes")%>
-    </h3>
+
 
 
     <% List<String[]> userHistory;
@@ -85,6 +90,7 @@
 
 
             userHistory = (List<String[]>) session.getAttribute("userComboHistory");
+            Collections.reverse(userHistory);//for view history new-old
             for (String[] history : userHistory) {
 
         %>

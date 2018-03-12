@@ -14,3 +14,13 @@ function resetCombo() {
 
 }
 
+function vefiryAndSendCombo() {
+
+    if (document.getElementById("userCombo").value.length !== 4) {
+        alert("Некорректная комбинация");
+    }
+    else
+        document.getElementById("inputCombo").submit();
+
+}
+

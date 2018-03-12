@@ -5,12 +5,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnectionHelper {
-    private static String dbURL = "jdbc:postgresql://localhost:5432/bullsAndCowsDB";
-    private static String user = "postgres";
-    private static String password = "postgres";
-    private static String dbDriver = "org.postgresql.Driver";
+    private static final String dbURL = "jdbc:postgresql://localhost:5432/bullsAndCowsDB";
+    private static final String user = "postgres";
+    private static final String password = "postgres";
+    private static final String dbDriver = "org.postgresql.Driver";
 
-    private static DBConnectionManager instance = new DBConnectionManager(dbURL,user,password,dbDriver);
+    private static final DBConnectionManager instance = new DBConnectionManager(dbURL,user,password,dbDriver);
     public static DBConnectionManager getDBConnectionManager(){
         return instance;
     }
@@ -18,12 +18,12 @@ public class DBConnectionHelper {
 
 
     public static class DBConnectionManager{
-        private String dbURL;
-        private String user;
-        private String password;
-        private String dbDriver;
+        private final String dbURL;
+        private final String user;
+        private final String password;
+        private final String dbDriver;
 
-        public DBConnectionManager(String dbURL, String user, String password, String dbDriver) {
+        DBConnectionManager(String dbURL, String user, String password, String dbDriver) {
             this.dbURL = dbURL;
             this.user = user;
             this.password = password;

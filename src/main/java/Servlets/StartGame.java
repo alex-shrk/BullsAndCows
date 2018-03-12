@@ -14,7 +14,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -38,7 +37,7 @@ public class StartGame extends HttpServlet {
         }
         return combination;
     }
-    public String convertIntArrayToInt(int[] array){
+    private String convertIntArrayToInt(int[] array){
         StringBuilder sb = new StringBuilder();
         for (int i:array)
             sb.append(i);

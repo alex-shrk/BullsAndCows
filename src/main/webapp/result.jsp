@@ -1,6 +1,7 @@
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.sql.SQLException" %>
+<%@ page import="java.util.Collections" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
@@ -15,13 +16,27 @@
 <%
     if (session.getAttribute("counterTryes") != null)
 %>
-<h3>Игра окончена</h3>
-<h3>Вы угадали комбинацию компьютера за число попыток:<%=(int) session.getAttribute("counterTryes")%></h3>
+<div class="header">
+    <h3>Игра окончена</h3>
+    <h3>Вы угадали комбинацию компьютера за число попыток:<%=(int) session.getAttribute("counterTryes")%></h3>
+</div>
+
+<div align="center">
+    <form action="finishGame" method="post">
+        <input id = finishGameBtn type="submit" value="Начать заново">
+
+    </form>
+</div>
+
 
 
 <% List<String[]> userHistory;
     if (session.getAttribute("userComboHistory") != null) {
 %>
+<div class="leftPanel" >
+
+
+
 <h3>История ходов</h3>
 <table>
     <tr>
@@ -32,6 +47,7 @@
 
 
         userHistory = (List<String[]>) session.getAttribute("userComboHistory");
+        Collections.reverse(userHistory);
         for (String[] history : userHistory) {
 
     %>
@@ -48,13 +64,13 @@
         }
     %>
 </table>
-
+</div>
 
 <% ResultSet ratingSet;
     try {
         if (session.getAttribute("ratingSet") != null) {
 %>
-
+<div class="rightPanel">
 <h3>Таблица результатов</h3>
 <table>
     <tr>
@@ -84,10 +100,9 @@
         }
     %>
 </table>
-<form action="finishGame" method="post">
-    <input type="submit" value="Начать заново">
+</div>
 
-</form>
+
 
 </body>
 </html>

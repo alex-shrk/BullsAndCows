@@ -27,14 +27,14 @@ public class VefiryGame extends HttpServlet {
 
 
 
-    public String convertIntArrayToInt(int[] array) {
+    private String convertIntArrayToInt(int[] array) {
         StringBuilder sb = new StringBuilder();
         for (int i : array)
             sb.append(i);
         return sb.toString();
     }
 
-    public String verifyComb(int[] compComb, int[] userComb) {
+    private String verifyComb(int[] compComb, int[] userComb) {
         int bulls = 0;
         int cows = 0;
         for (int i = 0; i < lengthCombination; i++) {

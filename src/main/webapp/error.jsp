@@ -1,4 +1,4 @@
-<%@ page isErrorPage="true" contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isErrorPage="true" contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Error page</title>
@@ -12,6 +12,6 @@
 <br/>
     ${pageContext.errorData.servletName}
 
-    <a href="index.jsp">Home page</a>
+    <a href="index.jsp">Вернуться на главную страницу</a>
 </body>
 </html>
