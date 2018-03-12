@@ -1,7 +1,7 @@
 package Servlets;
 
 
-import Connection.DBConnectionHelper.DBConnectionManager;
+import Helpers.DBConnectionHelper.DBConnectionManager;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,7 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static Connection.DBConnectionHelper.getDBConnectionManager;
+import static Helpers.DBConnectionHelper.getDBConnectionManager;
 
 
 public class Login extends HttpServlet {

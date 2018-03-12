@@ -1,20 +1,18 @@
 package Servlets;
 
-import Connection.DBConnectionHelper.DBConnectionManager;
+import Helpers.DBConnectionHelper.DBConnectionManager;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import static Connection.DBConnectionHelper.getDBConnectionManager;
+import static Helpers.DBConnectionHelper.getDBConnectionManager;
 
 
 public class Register extends HttpServlet {

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div class="header">
+<div align="center">
     <H2> Добро пожаловать в игру "Быки и коровы"</H2>
 </div>
 

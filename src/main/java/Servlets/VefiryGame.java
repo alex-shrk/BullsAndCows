@@ -1,6 +1,6 @@
 package Servlets;
 
-import Connection.DBConnectionHelper.DBConnectionManager;
+import Helpers.DBConnectionHelper.DBConnectionManager;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.IntStream;
 
-import static Connection.DBConnectionHelper.getDBConnectionManager;
+import static Helpers.DBConnectionHelper.getDBConnectionManager;
 
 
 public class VefiryGame extends HttpServlet {

@@ -1,6 +1,6 @@
 package Servlets;
 
-import Connection.DBConnectionHelper.DBConnectionManager;
+import Helpers.DBConnectionHelper.DBConnectionManager;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static Connection.DBConnectionHelper.getDBConnectionManager;
+import static Helpers.DBConnectionHelper.getDBConnectionManager;
 
 
 public class StartGame extends HttpServlet {

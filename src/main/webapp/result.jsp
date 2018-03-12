@@ -2,6 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="java.util.Collections" %>
+<%@ page import="static Helpers.Reversed.reversed" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
@@ -16,7 +17,7 @@
 <%
     if (session.getAttribute("counterTryes") != null)
 %>
-<div class="header">
+<div >
     <h3>Игра окончена</h3>
     <h3>Вы угадали комбинацию компьютера за число попыток:<%=(int) session.getAttribute("counterTryes")%></h3>
 </div>
@@ -47,8 +48,7 @@
 
 
         userHistory = (List<String[]>) session.getAttribute("userComboHistory");
-        Collections.reverse(userHistory);
-        for (String[] history : userHistory) {
+        for (String[] history : reversed(userHistory)) {//reversed - for sort history new-old
 
     %>
 

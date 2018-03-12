@@ -1,6 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.Collection" %>
-<%@ page import="java.util.Collections" %>
+<%@ page import="static Helpers.Reversed.*" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <script src="js/game.js"></script>
 <html>
@@ -10,11 +9,16 @@
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body>
+<div class="navBar">
+    <form action="logout" method="post">
+<h2> Игрок: <%=(String) session.getAttribute("userName")%> <input id=logoutBtn type="submit" value="Выйти"></h2>
 
+
+
+    </form>
+</div>
 <div class="header">
-    <h2>Пользователь:
-        <%=(String) session.getAttribute("userName")%>
-    </h2>
+
 
     <h2>Comp combination:
         <%=(String) session.getAttribute("compCombString")%>
@@ -24,10 +28,13 @@
     %>
     <h3>Число попыток:<%=(int) session.getAttribute("counterTryes")%>
     </h3>
+
+
 </div>
 
 
 <div class="leftPanel" align="center">
+    <h3>Ввод комбинации</h3>
     <form id="inputCombo" name="inputCombo" method="post" action="verifyGame">
 
 
@@ -72,9 +79,7 @@
     </form>
 </div>
 
-<div class="rightPanel" >
-
-
+<div class="rightPanel">
 
 
     <% List<String[]> userHistory;
@@ -90,8 +95,8 @@
 
 
             userHistory = (List<String[]>) session.getAttribute("userComboHistory");
-            Collections.reverse(userHistory);//for view history new-old
-            for (String[] history : userHistory) {
+
+            for (String[] history : reversed(userHistory)) {//reversed - for sort history new-old
 
         %>
 

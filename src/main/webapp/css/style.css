@@ -27,11 +27,19 @@ input, select {
 /* divs                                                         */
 /*********************************************************************************/
 
-
-header{
-    width: 40%;
+.navBar{
+    width: 20%;
     float:right;
-    font-size: medium;
+    text-align:right;
+
+
+}
+.header{
+    width: 80%;
+    float:right;
+    text-align:left;
+
+
 }
 .loginAndRegister{
     text-align: center;
@@ -40,12 +48,14 @@ header{
 }
 
 .leftPanel{
+
     text-align: center;
     width: 40%;
     float:left;
 
 }
 .rightPanel{
+
     text-align: center;
     float:left;
     width: 60%;
@@ -117,6 +127,17 @@ h1,h2,h3{
     padding: 14px 20px;
     margin: 8px 0;
     border-radius: 4px;
+    cursor: pointer;
+}
+#logoutBtn{
+    border: 2px solid green;
+    background-color: white;
+    color: black;
+    text-align:right;
+    width: content-box;
+    padding: 4px 2px;
+    margin: 2px 0;
+    border-radius: 1px;
     cursor: pointer;
 }
 #registerBtn{
