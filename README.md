@@ -1,1 +1,2 @@
-# Bulls And Cows game on jsp and servlets with css and js
+# Bulls And Cows web-game 
+Use jsp and servlets with js,css,html on WEB
