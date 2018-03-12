@@ -20,9 +20,9 @@
 <div class="header">
 
 
-    <h2>Comp combination:
+    <%--<h2>Comp combination:
         <%=(String) session.getAttribute("compCombString")%>
-    </h2>
+    </h2>--%>
     <%
         if (session.getAttribute("counterTryes") != null && !session.getAttribute("counterTryes").equals(0))
     %>
