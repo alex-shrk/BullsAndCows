@@ -1,3 +1,4 @@
+<%@ page import="Helpers.Vars" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <script src="js/index.js"></script>
 <html>
@@ -15,11 +16,11 @@
 <div class="loginAndRegister">
     <form id=loginForm action="login" method="post">
         <div>
-            <input class="userForm" id="userLogin" name="userLogin" type="text" placeholder="Логин">
+            <input class="userForm" id=user_login name=user_login type="text" placeholder="Логин">
 
         </div>
         <div>
-            <input class="userForm" id="userPsw" name="userPsw" type="password" placeholder="Пароль">
+            <input class="userForm" id="user_psw" name="user_psw" type="password" placeholder="Пароль">
         </div>
 
     </form>

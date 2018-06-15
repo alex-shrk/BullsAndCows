@@ -1,8 +1,10 @@
+<%@ page import="Entities.History" %>
+<%@ page import="Entities.User" %>
+<%@ page import="Helpers.Vars" %>
 <%@ page import="java.sql.ResultSet" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.sql.SQLException" %>
-<%@ page import="java.util.Collections" %>
 <%@ page import="static Helpers.Reversed.reversed" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
@@ -14,12 +16,13 @@
 
 
 
-<%
-    if (session.getAttribute("counterTryes") != null)
+<% User user = (User)session.getAttribute(Vars.USER);
+    History history = (History)session.getAttribute(Vars.HISTORY);
+    if (history != null)
 %>
 <div >
     <h3>Игра окончена</h3>
-    <h3>Вы угадали комбинацию компьютера за число попыток:<%=(int) session.getAttribute("counterTryes")%></h3>
+    <h3>Вы угадали комбинацию компьютера за число попыток:<%=history.getCounter()%></h3>
 </div>
 
 <div align="center">
@@ -31,8 +34,8 @@
 
 
 
-<% List<String[]> userHistory;
-    if (session.getAttribute("userComboHistory") != null) {
+<%
+    if (history.getUserCombos() != null) {
 %>
 <div class="leftPanel" >
 
@@ -45,17 +48,13 @@
         <th>Результат</th>
     </tr>
     <%
-
-
-        userHistory = (List<String[]>) session.getAttribute("userComboHistory");
-        for (String[] history : reversed(userHistory)) {//reversed - for sort history new-old
-
+        for (History.Storage el : reversed(history.getUserCombos())) {//reversed - for sort history new-old
     %>
 
     <tr>
-        <td><%=history[0]%>
+        <td><%=el.getComb().getCombinationString()%>
         </td>
-        <td><%=history[1]%>
+        <td><%=el.getAnswer()%>
         </td>
     </tr>
 
@@ -66,9 +65,9 @@
 </table>
 </div>
 
-<% ResultSet ratingSet;
+<% ResultSet ratingSet = (ResultSet) session.getAttribute(Vars.RATING_SET);
     try {
-        if (session.getAttribute("ratingSet") != null) {
+        if (ratingSet != null) {
 %>
 <div class="rightPanel">
 <h3>Таблица результатов</h3>
@@ -78,7 +77,7 @@
         <th>Среднее число попыток</th>
     </tr>
     <%
-        ratingSet = (ResultSet) session.getAttribute("ratingSet");
+
         while (ratingSet.next()) {
 
     %>

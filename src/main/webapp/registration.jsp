@@ -12,15 +12,15 @@
 <div class="loginAndRegister">
     <form action="registration" method="post">
         <div>
-            <input type="text" name="userLogin" placeholder="Логин">
+            <input type="text" name=user_login placeholder="Логин">
         </div>
 
         <div>
-            <input type="password" name="userPsw" placeholder="Пароль">
+            <input type="password" name=user_psw placeholder="Пароль">
         </div>
 
         <div>
-            <input type="text" name="userName" placeholder="Имя игрока">
+            <input type="text" name="user_name" placeholder="Имя игрока">
         </div>
 
         <div>

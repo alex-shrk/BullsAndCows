@@ -1,5 +1,7 @@
 package Servlets;
 
+import Helpers.Vars;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +20,7 @@ public class FinishGame extends HttpServlet {
         HttpSession session = req.getSession();
         session.setAttribute("counterTryes",null);
         session.setAttribute("compCombination",null);
-        session.setAttribute("ratingSet",null);
+        session.setAttribute(Vars.RATING_SET,null);
         session.setAttribute("userComboHistory",null);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/startGame");
         dispatcher.forward(req, resp);

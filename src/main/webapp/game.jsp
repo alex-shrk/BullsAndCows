@@ -1,5 +1,7 @@
-<%@ page import="java.util.List" %>
+<%@ page import="Entities.History" %>
 <%@ page import="static Helpers.Reversed.*" %>
+<%@ page import="Entities.User" %>
+<%@ page import="Helpers.Vars" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <script src="js/game.js"></script>
 <html>
@@ -9,9 +11,12 @@
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body>
+<% User user = (User)session.getAttribute(Vars.USER);
+    History history = (History)session.getAttribute(Vars.HISTORY);
+%>
 <div class="navBar">
     <form action="logout" method="post">
-<h2> Игрок: <%=(String) session.getAttribute("userName")%> <input id=logoutBtn type="submit" value="Выйти"></h2>
+<h2> Игрок: <%=user.getName()%> <input id=logoutBtn type="submit" value="Выйти"></h2>
 
 
 
@@ -24,9 +29,9 @@
         <%=(String) session.getAttribute("compCombString")%>
     </h2>--%>
     <%
-        if (session.getAttribute("counterTryes") != null && !session.getAttribute("counterTryes").equals(0))
+        if (history != null && !history.getCounter().equals(0))
     %>
-    <h3>Число попыток:<%=(int) session.getAttribute("counterTryes")%>
+    <h3>Число попыток:<%=history.getCounter()%>
     </h3>
 
 
@@ -38,7 +43,7 @@
     <form id="inputCombo" name="inputCombo" method="post" action="verifyGame">
 
 
-        <input id="userCombo" type="text" name="userCombo" readonly="readonly">
+        <input id="userCombo" type="number" name="userCombo" readonly="readonly">
 
         <div>
             <input class="inputBtn" id="button1" type="button" value="1"
@@ -82,8 +87,8 @@
 <div class="rightPanel">
 
 
-    <% List<String[]> userHistory;
-        if (session.getAttribute("userComboHistory") != null) {
+    <%
+        if (history.getUserCombos() != null) {
     %>
     <h3>История ходов</h3>
     <table>
@@ -92,18 +97,13 @@
             <th>Результат</th>
         </tr>
         <%
-
-
-            userHistory = (List<String[]>) session.getAttribute("userComboHistory");
-
-            for (String[] history : reversed(userHistory)) {//reversed - for sort history new-old
-
+            for (History.Storage el : reversed(history.getUserCombos())) {//reversed - for sort history new-old
         %>
 
         <tr>
-            <td><%=history[0]%>
+            <td><%=el.getComb().getCombinationString()%>
             </td>
-            <td><%=history[1]%>
+            <td><%=el.getAnswer()%>
             </td>
         </tr>
 
