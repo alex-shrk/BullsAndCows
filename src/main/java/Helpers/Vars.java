@@ -9,5 +9,5 @@ public class Vars {
     final static public String USER_PASSWORD = "user_psw";
     final static public String USER_NAME = "user_name";
     final static public String USER = "user";
-    final static public String RATING_SET = "rating_set";
+    final static public String RATING_LIST = "rating_list";
 }

@@ -1,10 +1,11 @@
 package DAO;
 
+import Entities.Rating;
 import Entities.User;
 
-import java.sql.ResultSet;
+import java.util.List;
 
 public interface HistoryDAO {
     void add(User user,int counter);
-    ResultSet getRating();
+    List<Rating> getRating();
 }

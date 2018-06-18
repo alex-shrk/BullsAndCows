@@ -1,25 +1,25 @@
 package Entities;
 
 public class Rating {
-    private String userName;
-    private String avgCountTurns;
+    private String user;
+    private String result;
 
     public Rating() {
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUser() {
+        return user;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUser(String user) {
+        this.user = user;
     }
 
-    public String getAvgCountTurns() {
-        return avgCountTurns;
+    public String getResult() {
+        return result;
     }
 
-    public void setAvgCountTurns(String avgCountTurns) {
-        this.avgCountTurns = avgCountTurns;
+    public void setResult(String result) {
+        this.result = result;
     }
 }

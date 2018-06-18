@@ -30,7 +30,7 @@ public class VefiryGame extends HttpServlet {
         History history = (History) session.getAttribute(Vars.HISTORY);
 
         Combination userCombo = new Combination();
-        userCombo.setCombination(req.getParameter("userCombo"));
+        userCombo.setCombination(req.getParameter(Vars.USER_COMBO));
         Combination compCombo = (Combination) session.getAttribute(Vars.COMP_COMBO);
         String answer = new CombinationImpl().verify(compCombo.getCombination(), userCombo.getCombination());
 
@@ -42,8 +42,7 @@ public class VefiryGame extends HttpServlet {
         if (answer.equals(Vars.RIGHT_ANSWER)) {
             HistoryDAO dao = DAOFactory.getInstance().getHistoryDAO();
             dao.add(user,history.getCounter());
-
-            session.setAttribute(Vars.RATING_SET, dao.getRating());
+            session.setAttribute(Vars.RATING_LIST, dao.getRating());
             dispatcher = getServletContext().getRequestDispatcher("/result.jsp");
         }
         else

@@ -20,7 +20,7 @@ public class FinishGame extends HttpServlet {
         HttpSession session = req.getSession();
         session.setAttribute("counterTryes",null);
         session.setAttribute("compCombination",null);
-        session.setAttribute(Vars.RATING_SET,null);
+        session.setAttribute(Vars.RATING_LIST,null);
         session.setAttribute("userComboHistory",null);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/startGame");
         dispatcher.forward(req, resp);

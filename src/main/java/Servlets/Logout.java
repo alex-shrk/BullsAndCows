@@ -21,7 +21,7 @@ public class Logout extends HttpServlet {
         session.setAttribute(Vars.USER,null);
         session.setAttribute(Vars.HISTORY,null);
         session.setAttribute(Vars.COMP_COMBO,null);
-        session.setAttribute(Vars.RATING_SET,null);//fixme
+        session.setAttribute(Vars.RATING_LIST,null);//fixme
         session.setAttribute(Vars.USER_COMBO,null);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
         dispatcher.forward(req, resp);

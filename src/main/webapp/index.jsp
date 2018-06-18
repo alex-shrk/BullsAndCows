@@ -9,31 +9,36 @@
 </head>
 <body>
 
-<div align="center">
+<header>
+
     <H2> Добро пожаловать в игру "Быки и коровы"</H2>
-</div>
 
-<div class="loginAndRegister">
-    <form id=loginForm action="login" method="post">
-        <div>
-            <input class="userForm" id=user_login name=user_login type="text" placeholder="Логин">
+</header>
 
-        </div>
-        <div>
-            <input class="userForm" id="user_psw" name="user_psw" type="password" placeholder="Пароль">
-        </div>
+<main>
+    <div class="loginAndRegister">
+        <form id=loginForm action="login" method="post">
+            <div>
+                <input class="userForm" id=user_login name=user_login type="text" placeholder="Логин">
 
-    </form>
-    <div>
-        <form action="registration.jsp" method="post">
-        <input class="userForm" id="loginBtn" name="loginBtn" type="button" value="Войти"
-               onclick="vefiryAndLogin()"/>
+            </div>
+            <div>
+                <input class="userForm" id="user_psw" name="user_psw" type="password" placeholder="Пароль">
+            </div>
 
-            <input id="registerBtn" type="submit" value="Регистрация">
         </form>
+        <div>
+            <form action="registration.jsp" method="post">
+                <input class="button loginBtn" name="loginBtn" type="button" value="Войти"
+                       onclick="vefiryAndLogin()"/>
+
+                <input class="button registerBtn" type="submit" value="Регистрация">
+            </form>
+        </div>
+
+
     </div>
+</main>
 
-
-</div>
 </body>
 </html>

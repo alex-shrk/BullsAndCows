@@ -6,10 +6,11 @@
     <title>Регистрация игрока</title>
 </head>
 <body>
-<div class="header">
-    <H2> Форма регистрации нового игрока</H2>
-</div>
-<div class="loginAndRegister">
+<header>
+    <h2> Форма регистрации нового игрока</h2>
+</header>
+
+<main>
     <form action="registration" method="post">
         <div>
             <input type="text" name=user_login placeholder="Логин">
@@ -24,9 +25,11 @@
         </div>
 
         <div>
-            <input id="registerBtn" type="submit" value="Зарегистрироваться">
+            <input class="button registerBtn" type="submit" value="Зарегистрироваться">
         </div>
     </form>
+</main>
+
 
 </div>
 
