@@ -34,7 +34,7 @@
     <div class="inputPanel">
         <h3>Ввод комбинации</h3>
         <form id="inputCombo" name="inputCombo" method="post" action="checkAnswer">
-            <input id="user_сombo" type="number" name="user_combo" readonly="readonly">
+            <input id="user_сombo" type="text" name="user_combo" readonly="readonly">
             <div>
                 <input class="button inputBtn" id="button1" type="button" value="1"
                        onclick="buttonHandler(this.id,this.value)">
