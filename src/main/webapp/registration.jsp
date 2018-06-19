@@ -6,29 +6,29 @@
     <title>Регистрация игрока</title>
 </head>
 <body>
-<div class="header">
-    <H2> Форма регистрации нового игрока</H2>
-</div>
-<div class="loginAndRegister">
+<header>
+    <h2> Форма регистрации нового игрока</h2>
+</header>
+
+<main>
     <form action="registration" method="post">
         <div>
-            <input type="text" name="userLogin" placeholder="Логин">
+            <input required type="text" name=user_login placeholder="Логин">
         </div>
 
         <div>
-            <input type="password" name="userPsw" placeholder="Пароль">
+            <input type="password" name=user_psw placeholder="Пароль">
         </div>
 
         <div>
-            <input type="text" name="userName" placeholder="Имя игрока">
+            <input required type="text" name="user_name" placeholder="Имя игрока">
         </div>
-
         <div>
-            <input id="registerBtn" type="submit" value="Зарегистрироваться">
+            <input class="button registerBtn" type="submit" value="Зарегистрироваться">
+            <input class="button" type="reset" value="Сброс">
         </div>
     </form>
-
-</div>
+</main>
 
 
 </body>

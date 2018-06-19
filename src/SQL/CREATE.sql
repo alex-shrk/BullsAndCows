@@ -19,7 +19,6 @@ CREATE SEQUENCE "userIdSeq"
  MAXVALUE 2147483647
  START 1
  CACHE 1;
-SELECT setval('"public"."userIdSeq"', 6, true);
 
 -- ----------------------------
 -- Table structure for History
@@ -33,39 +32,34 @@ CREATE TABLE "History" (
 WITH (OIDS=FALSE);
 
 
-
 -- ----------------------------
 -- Table structure for User
 -- ----------------------------
 DROP TABLE IF EXISTS "User";
-CREATE TABLE "User" (
-"id" int8 DEFAULT nextval('"userIdSeq"'::regclass) NOT NULL,
-"login" varchar(20) COLLATE "default" NOT NULL,
-"psw" varchar(20) COLLATE "default",
-"name" varchar(20) COLLATE "default"
+CREATE TABLE public."User"
+(
+  id bigint NOT NULL DEFAULT nextval('"userIdSeq"'::regclass),
+  login character varying(20) NOT NULL,
+  psw character varying(20),
+  name character varying(20),
+  UNIQUE(login),
+  CONSTRAINT "User_pkey" PRIMARY KEY (id)
 )
-WITH (OIDS=FALSE);
+WITH (
+  OIDS=FALSE
+);
+
 
 
 -- ----------------------------
 -- View structure for RatingView
 -- ----------------------------
-CREATE OR REPLACE VIEW "RatingView" AS 
+CREATE OR REPLACE VIEW "RatingView" AS
  SELECT "User".name AS "User",
     round(avg("History".result), 3) AS "Result"
    FROM "History",
     "User"
-  WHERE ("History"."id_user" = "User".id)
-  GROUP BY "User".name
-  ORDER BY "User".name DESC;
+  WHERE "History".id_user = "User".id
+  GROUP BY "User"
+  ORDER BY "Result" ASC;
 
-
--- ----------------------------
--- Primary Key structure for table History
--- ----------------------------
-ALTER TABLE "History" ADD PRIMARY KEY ("id");
-
--- ----------------------------
--- Primary Key structure for table User
--- ----------------------------
-ALTER TABLE "User" ADD PRIMARY KEY ("id");

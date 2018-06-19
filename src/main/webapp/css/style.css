@@ -1,12 +1,24 @@
 * {
     box-sizing: border-box;
     font-size: medium;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
 
-/*********************************************************************************/
-/* Input                                                           */
-/*********************************************************************************/
+main{
+    text-align: center;
+}
+h1,h2,h3{
+    text-align: center;
+    font-size: large;
+}
+a {
+    text-decoration: none;
+}
+
+/************************************************************/
+/* Input                                                     */
+/*************************************************************/
 
 input, select {
     text-align: center;
@@ -21,53 +33,37 @@ input, select {
 
 
 
+/*******************************************************/
+/* layers                                              */
+/******************************************************/
 
 
-/*********************************************************************************/
-/* divs                                                         */
-/*********************************************************************************/
-
-.navBar{
-    width: 20%;
-    float:right;
-    text-align:right;
-
-
-}
-.header{
+.infoBar{
     width: 80%;
     float:right;
     text-align:left;
-
-
 }
-.loginAndRegister{
-    text-align: center;
-    float:top;
-
+.controlBar{
+    width: 20%;
+    float:right;
+    text-align:right;
 }
 
-.leftPanel{
-
-    text-align: center;
-    width: 40%;
+.inputPanel{
     float:left;
+    width: 40%;
 
 }
-.rightPanel{
-
-    text-align: center;
+.resultPanel{
     float:left;
     width: 60%;
 
 }
 /*********************************************************************************/
-/* Tables                                                           */
+/* Table                                                          */
 /*********************************************************************************/
 
 table {
-    text-align: center;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     margin:auto;
 }
@@ -83,18 +79,10 @@ th {
 }
 td {
     border: 1px solid #ddd;
-    padding: 8px;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding: 12px 8px;
     text-align: left;
     background-color: #eeffef;
     color: #000000;
-}
-
-h1,h2,h3{
-    text-align: center;
-    font-size: large;
-
 }
 
 
@@ -102,12 +90,55 @@ h1,h2,h3{
 /* Buttons                                                         */
 /*********************************************************************************/
 
+.button{
+    border: 2px solid;
+    background-color: white;
+    text-align: center;
+    width: content-box;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/*index page*/
+.loginBtn{
+    border: 2px solid green;
+    color: green;
+}
+.registerBtn{
+    border: 2px solid blue;
+    color: blue;
+}
+
+/*game page*/
+
+
+.logoutBtn{
+    border: 2px solid green;
+    color: black;
+    text-align:right;
+    padding: 4px 2px;
+    margin: 2px 0;
+    border-radius: 1px;
+}
+
+/**
+input panel
+*/
+.resetBtn{
+    background-color: red;
+    border: none;
+}
+.sendBtn{
+    background-color: green;
+    border: none;
+}
+
 .inputBtn{
     border: 2px solid green;
     color:black;
-    background-color: white;
     transition-duration: 0.4s;
-    cursor: pointer;
     font-size: medium;
 }
 .inputBtn:hover{
@@ -117,60 +148,6 @@ h1,h2,h3{
 .inputBtn:disabled{
     border: none;
     color:gray;
-}
-#loginBtn{
-    border: 2px solid green;
-    background-color: white;
-    color: green;
-    text-align: center;
-    width: content-box;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border-radius: 4px;
-    cursor: pointer;
-}
-#logoutBtn{
-    border: 2px solid green;
-    background-color: white;
-    color: black;
-    text-align:right;
-    width: content-box;
-    padding: 4px 2px;
-    margin: 2px 0;
-    border-radius: 1px;
-    cursor: pointer;
-}
-#registerBtn{
-    border: 2px solid blue;
-    background-color: white;
-    color: blue;
-    text-align: center;
-    width: content-box;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border-radius: 4px;
-    cursor: pointer;
-}
-#finishGameBtn{
-    border: 2px solid green;
-    background-color: white;
-    color: green;
-    text-align: center;
-    width: content-box;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-
-#resetBtn{
-    background-color: red;
-    border: none;
-}
-#sendBtn{
-    background-color: green;
-    border: none;
 }
 
 

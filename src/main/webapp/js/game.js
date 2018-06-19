@@ -1,6 +1,6 @@
 function buttonHandler(id, value) {
-    if (document.inputCombo.userCombo.value.length < 4) {
-        document.inputCombo.userCombo.value += value;
+    if (document.inputCombo.user_сombo.value.length < 4) {
+        document.inputCombo.user_сombo.value += value;
         document.getElementById(id).disabled = true;//disable btn for unique comb
     }
 }
@@ -16,7 +16,7 @@ function resetCombo() {
 
 function vefiryAndSendCombo() {
 
-    if (document.getElementById("userCombo").value.length !== 4) {
+    if (document.getElementById("user_сombo").value.length !== 4) {
         alert("Некорректная комбинация");
     }
     else

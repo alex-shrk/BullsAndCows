@@ -1,8 +1,8 @@
-<%@ page import="java.sql.ResultSet" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.sql.SQLException" %>
-<%@ page import="java.util.Collections" %>
+<%@ page import="Entities.History" %>
+<%@ page import="Entities.Rating" %>
+<%@ page import="Helpers.Vars" %>
 <%@ page import="static Helpers.Reversed.reversed" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
@@ -13,95 +13,79 @@
 <body>
 
 
-
 <%
-    if (session.getAttribute("counterTryes") != null)
+    History history = (History) session.getAttribute(Vars.HISTORY);
+    if (history != null)
 %>
-<div >
+<div>
     <h3>Игра окончена</h3>
-    <h3>Вы угадали комбинацию компьютера за число попыток:<%=(int) session.getAttribute("counterTryes")%></h3>
+    <h3>Вы угадали комбинацию компьютера за число попыток:<%=history.getCounter()%>
+    </h3>
 </div>
 
 <div align="center">
-    <form action="finishGame" method="post">
-        <input id = finishGameBtn type="submit" value="Начать заново">
-
+    <form action="startGame" method="post">
+        <input class="button loginBtn" type="submit" value="Начать заново">
     </form>
 </div>
 
-
-
-<% List<String[]> userHistory;
-    if (session.getAttribute("userComboHistory") != null) {
+<%
+    if (history.getUserCombos() != null) {
 %>
-<div class="leftPanel" >
+<div class="inputPanel">
 
 
+    <h3>История ходов</h3>
+    <table>
+        <tr>
+            <th>Комбинация</th>
+            <th>Результат</th>
+        </tr>
+        <%
+            for (History.Storage el : reversed(history.getUserCombos())) {//reversed - for sort history new-old
+        %>
 
-<h3>История ходов</h3>
-<table>
-    <tr>
-        <th>Комбинация</th>
-        <th>Результат</th>
-    </tr>
-    <%
+        <tr>
+            <td><%=el.getComb().getCombinationString()%>
+            </td>
+            <td><%=el.getAnswer()%>
+            </td>
+        </tr>
 
-
-        userHistory = (List<String[]>) session.getAttribute("userComboHistory");
-        for (String[] history : reversed(userHistory)) {//reversed - for sort history new-old
-
-    %>
-
-    <tr>
-        <td><%=history[0]%>
-        </td>
-        <td><%=history[1]%>
-        </td>
-    </tr>
-
-    <%
-            }
-        }
-    %>
-</table>
-</div>
-
-<% ResultSet ratingSet;
-    try {
-        if (session.getAttribute("ratingSet") != null) {
-%>
-<div class="rightPanel">
-<h3>Таблица результатов</h3>
-<table>
-    <tr>
-        <th>Игрок</th>
-        <th>Среднее число попыток</th>
-    </tr>
-    <%
-        ratingSet = (ResultSet) session.getAttribute("ratingSet");
-        while (ratingSet.next()) {
-
-    %>
-
-
-    <tr>
-        <td><%=ratingSet.getString("User")%>
-        </td>
-        <td><%=ratingSet.getString("Result")%>
-        </td>
-    </tr>
-
-    <%
-
+        <%
                 }
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    %>
-</table>
+        %>
+    </table>
 </div>
 
+<% List<Rating> ratingList = (List<Rating>) session.getAttribute(Vars.RATING_LIST);
+
+    if (ratingList != null) {
+%>
+<div class="resultPanel">
+    <h3>Таблица результатов</h3>
+    <table>
+        <tr>
+            <th>Игрок</th>
+            <th>Среднее число попыток</th>
+        </tr>
+        <%
+            for (Rating rating : ratingList) {
+        %>
+
+        <tr>
+            <td><%=rating.getUser()%>
+            </td>
+            <td><%=rating.getResult()%>
+            </td>
+        </tr>
+        <%
+                }
+            }
+        %>
+    </table>
+</div>
 
 
 </body>

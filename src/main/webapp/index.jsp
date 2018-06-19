@@ -1,5 +1,5 @@
+<%@ page import="Helpers.Vars" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<script src="js/index.js"></script>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -8,31 +8,25 @@
 </head>
 <body>
 
-<div align="center">
-    <H2> Добро пожаловать в игру "Быки и коровы"</H2>
-</div>
+<header>
+    <h2> Добро пожаловать в игру "Быки и коровы"</h2>
+</header>
 
-<div class="loginAndRegister">
-    <form id=loginForm action="login" method="post">
-        <div>
-            <input class="userForm" id="userLogin" name="userLogin" type="text" placeholder="Логин">
-
-        </div>
-        <div>
-            <input class="userForm" id="userPsw" name="userPsw" type="password" placeholder="Пароль">
-        </div>
-
-    </form>
-    <div>
-        <form action="registration.jsp" method="post">
-        <input class="userForm" id="loginBtn" name="loginBtn" type="button" value="Войти"
-               onclick="vefiryAndLogin()"/>
-
-            <input id="registerBtn" type="submit" value="Регистрация">
+<main>
+    <div class="loginAndRegister">
+        <form id=loginForm action="login" method="post">
+            <div>
+                <input required class="userForm" id=user_login name=user_login type="text" placeholder="Логин">
+            </div>
+            <div>
+                <input class="userForm" id="user_psw" name="user_psw" type="password" placeholder="Пароль">
+            </div>
+            <input type="submit" class="button loginBtn" name="loginBtn" value="Войти"/>
+            <a class="button registerBtn" href="registration.jsp">Регистрация</a>
         </form>
+
     </div>
+</main>
 
-
-</div>
 </body>
 </html>

@@ -8,16 +8,12 @@
         <servlet-class>Servlets.StartGame</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>VerifyGame</servlet-name>
-        <servlet-class>Servlets.VefiryGame</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>FinishGame</servlet-name>
-        <servlet-class>Servlets.FinishGame</servlet-class>
+        <servlet-name>CheckAnswer</servlet-name>
+        <servlet-class>Servlets.CheckAnswer</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Registration</servlet-name>
-        <servlet-class>Servlets.Register</servlet-class>
+        <servlet-class>Servlets.Registration</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Login</servlet-name>
@@ -32,12 +28,8 @@
         <url-pattern>/startGame</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>VerifyGame</servlet-name>
-        <url-pattern>/verifyGame</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>FinishGame</servlet-name>
-        <url-pattern>/finishGame</url-pattern>
+        <servlet-name>CheckAnswer</servlet-name>
+        <url-pattern>/checkAnswer</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Registration</servlet-name>
