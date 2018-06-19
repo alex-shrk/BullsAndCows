@@ -15,32 +15,26 @@
     History history = (History) session.getAttribute(Vars.HISTORY);
 %>
 <header>
-    <div class="navBar">
+    <div class="controlBar">
         <form action="logout" method="post">
             <h2> Игрок: <%=user.getName()%> <input class="button logoutBtn" type="submit" value="Выйти"></h2>
         </form>
     </div>
-    <div class="header">
-
+    <div class="infoBar">
         <%
             if (history != null && !history.getCounter().equals(0))
         %>
-        <h3>Число попыток:<%=history.getCounter()%>
-        </h3>
-
+        <h3>Число попыток:<%=history.getCounter()%></h3>
 
     </div>
 </header>
 
 
 <main>
-    <div class="leftPanel">
+    <div class="inputPanel">
         <h3>Ввод комбинации</h3>
-        <form id="inputCombo" name="inputCombo" method="post" action="verifyGame">
-
-
+        <form id="inputCombo" name="inputCombo" method="post" action="checkAnswer">
             <input id="user_сombo" type="number" name="user_combo" readonly="readonly">
-
             <div>
                 <input class="button inputBtn" id="button1" type="button" value="1"
                        onclick="buttonHandler(this.id,this.value)">
@@ -65,14 +59,12 @@
                 <input class="button inputBtn" id="button9" type="button" value="9"
                        onclick="buttonHandler(this.id,this.value)">
             </div>
-
             <div>
                 <input class="button inputBtn" id="button0" type="button" value="0"
                        onclick="buttonHandler(this.id,this.value)">
             </div>
             <div>
                 <input class="button resetBtn" id="resetBtn" type="button" value="Сброс" onclick="resetCombo()"/>
-
                 <input class="button sendBtn" id="sendBtn" type="button" value="ОК" onclick="vefiryAndSendCombo()"/>
             </div>
 
@@ -80,8 +72,7 @@
         </form>
     </div>
 
-    <div class="rightPanel">
-
+    <div class="resultPanel">
 
         <%
             if (history.getUserCombos() != null) {

@@ -1,17 +1,22 @@
 <%@ page isErrorPage="true" contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Error page</title>
+    <title>Ошибка</title>
 </head>
 <body>
-    Request that failed: ${pageContext.errorData.requestURI}
-<br/>
-    Status code: ${pageContext.errorData.statusCode}
-<br/>
-    Exception: ${pageContext.errorData.throwable}
-<br/>
-    ${pageContext.errorData.servletName}
-
-    <a href="index.jsp">Вернуться на главную страницу</a>
+<h2>
+    Возникла ошибка в работе
+</h2>
+<details>
+    <summary>Информация об ошибке</summary>
+    Запрос: ${pageContext.errorData.requestURI}
+    <br/>
+    Статус: ${pageContext.errorData.statusCode}
+    <br/>
+    Исключение: ${pageContext.errorData.throwable}
+    <br/>
+    Источник: ${pageContext.errorData.servletName}
+</details>
+<a href="index.jsp">Вернуться на главную страницу</a>
 </body>
 </html>

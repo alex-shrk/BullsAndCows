@@ -1,7 +1,18 @@
 package Entities;
 
+/**
+ * Rating entity
+ *
+ */
 public class Rating {
+    /**
+     * User name
+     */
     private String user;
+    /**
+     * Average of steps which spent for guessing right combination
+     * See RatingView in CREATE.SQL file
+     */
     private String result;
 
     public Rating() {

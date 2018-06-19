@@ -4,6 +4,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+/**
+ * Class for reverse of {@link List}.
+ * Implementing custom iterator {@link Reversed#iterator()}
+ * and
+ * method {@link Reversed#reversed(List)} for return reverse list
+ */
 public class Reversed<T> implements Iterable<T> {
     private final List<T> orig;
 

@@ -5,9 +5,20 @@
 }
 
 
-/*********************************************************************************/
-/* Input                                                           */
-/*********************************************************************************/
+main{
+    text-align: center;
+}
+h1,h2,h3{
+    text-align: center;
+    font-size: large;
+}
+a {
+    text-decoration: none;
+}
+
+/************************************************************/
+/* Input                                                     */
+/*************************************************************/
 
 input, select {
     text-align: center;
@@ -21,46 +32,38 @@ input, select {
 }
 
 
-main{
-    text-align: center;
-}
+
+/*******************************************************/
+/* layers                                              */
+/******************************************************/
 
 
-
-/*********************************************************************************/
-/* divs                                                         */
-/*********************************************************************************/
-
-
-.header{
+.infoBar{
     width: 80%;
     float:right;
     text-align:left;
 }
-.navBar{
+.controlBar{
     width: 20%;
     float:right;
     text-align:right;
 }
 
-
-.leftPanel{
+.inputPanel{
     float:left;
     width: 40%;
 
 }
-.rightPanel{
+.resultPanel{
     float:left;
     width: 60%;
 
 }
 /*********************************************************************************/
-/* Tables                                                           */
+/* Table                                                          */
 /*********************************************************************************/
 
 table {
-    text-align: center;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     margin:auto;
 }
@@ -80,12 +83,6 @@ td {
     text-align: left;
     background-color: #eeffef;
     color: #000000;
-}
-
-h1,h2,h3{
-    text-align: center;
-    font-size: large;
-
 }
 
 
@@ -115,6 +112,8 @@ h1,h2,h3{
 }
 
 /*game page*/
+
+
 .logoutBtn{
     border: 2px solid green;
     color: black;
@@ -124,7 +123,9 @@ h1,h2,h3{
     border-radius: 1px;
 }
 
-
+/**
+input panel
+*/
 .resetBtn{
     background-color: red;
     border: none;

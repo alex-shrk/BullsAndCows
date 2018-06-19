@@ -13,7 +13,7 @@
 <main>
     <form action="registration" method="post">
         <div>
-            <input type="text" name=user_login placeholder="Логин">
+            <input required type="text" name=user_login placeholder="Логин">
         </div>
 
         <div>
@@ -21,17 +21,14 @@
         </div>
 
         <div>
-            <input type="text" name="user_name" placeholder="Имя игрока">
+            <input required type="text" name="user_name" placeholder="Имя игрока">
         </div>
-
         <div>
             <input class="button registerBtn" type="submit" value="Зарегистрироваться">
+            <input class="button" type="reset" value="Сброс">
         </div>
     </form>
 </main>
-
-
-</div>
 
 
 </body>

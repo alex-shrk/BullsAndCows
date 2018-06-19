@@ -24,15 +24,15 @@
 </div>
 
 <div align="center">
-    <form action="finishGame" method="post">
-        <input class="button" type="submit" value="Начать заново">
+    <form action="startGame" method="post">
+        <input class="button loginBtn" type="submit" value="Начать заново">
     </form>
 </div>
 
 <%
     if (history.getUserCombos() != null) {
 %>
-<div class="leftPanel">
+<div class="inputPanel">
 
 
     <h3>История ходов</h3>
@@ -63,7 +63,7 @@
 
     if (ratingList != null) {
 %>
-<div class="rightPanel">
+<div class="resultPanel">
     <h3>Таблица результатов</h3>
     <table>
         <tr>

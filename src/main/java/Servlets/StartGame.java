@@ -2,7 +2,7 @@ package Servlets;
 
 import Entities.Combination;
 import Entities.History;
-import Helpers.CombinationImpl;
+import DAO.CombinationImpl;
 import Helpers.Vars;
 
 import javax.servlet.RequestDispatcher;

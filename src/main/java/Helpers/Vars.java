@@ -1,5 +1,8 @@
 package Helpers;
 
+/**
+ * Class with variables used in project
+ */
 public class Vars {
     final static public String USER_COMBO = "user_combo";
     final static public String COMP_COMBO = "comp_combo";
@@ -10,4 +13,5 @@ public class Vars {
     final static public String USER_NAME = "user_name";
     final static public String USER = "user";
     final static public String RATING_LIST = "rating_list";
+    final static public String LOGOUT = "logout";
 }

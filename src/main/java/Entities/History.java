@@ -4,8 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * History entity
+ */
 public class History {
+    /**
+     * Counter of user's steps
+     */
     private Integer counter;
+    /**
+     * List with user combos
+     * @see Storage
+     */
     private List<Storage> userCombos;
 
     public History() {
@@ -25,8 +35,18 @@ public class History {
         counter++;
     }
 
+    /**
+     * Storage of user combos
+     */
     public class Storage{
+        /**
+         * User combination
+         */
         private Combination comb;
+        /**
+         * answer from computer after verification
+         * @see DAO.Combination#verify(int[], int[])
+         */
         private String answer;
 
         Storage(Combination comb, String answer) {
@@ -38,7 +58,7 @@ public class History {
             return comb;
         }
 
-        public void setComb(Combination comb) {
+        private void setComb(Combination comb) {
             this.comb = comb;
         }
 
@@ -46,7 +66,7 @@ public class History {
             return answer;
         }
 
-        public void setAnswer(String answer) {
+        private void setAnswer(String answer) {
             this.answer = answer;
         }
 

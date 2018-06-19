@@ -1,5 +1,8 @@
 package DAO;
 
+/**
+ * Data access object Factory for DAOs
+ */
 public class DAOFactory {
     private static UserDAO userDAO = null;
     private static HistoryDAO historyDAO = null;

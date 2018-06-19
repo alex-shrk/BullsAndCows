@@ -5,7 +5,7 @@ import DAO.HistoryDAO;
 import Entities.Combination;
 import Entities.History;
 import Entities.User;
-import Helpers.CombinationImpl;
+import DAO.CombinationImpl;
 import Helpers.Vars;
 
 import javax.servlet.RequestDispatcher;
@@ -17,8 +17,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
-public class VefiryGame extends HttpServlet {
-
+public class CheckAnswer extends HttpServlet {
 
 
     @Override
@@ -26,29 +25,27 @@ public class VefiryGame extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
+
         User user = (User) session.getAttribute(Vars.USER);
         History history = (History) session.getAttribute(Vars.HISTORY);
+        Combination compCombo = (Combination) session.getAttribute(Vars.COMP_COMBO);
 
         Combination userCombo = new Combination();
         userCombo.setCombination(req.getParameter(Vars.USER_COMBO));
-        Combination compCombo = (Combination) session.getAttribute(Vars.COMP_COMBO);
         String answer = new CombinationImpl().verify(compCombo.getCombination(), userCombo.getCombination());
-
-        history.add(userCombo,answer);
-
+        history.add(userCombo, answer);
 
         RequestDispatcher dispatcher;
 
         if (answer.equals(Vars.RIGHT_ANSWER)) {
             HistoryDAO dao = DAOFactory.getInstance().getHistoryDAO();
-            dao.add(user,history.getCounter());
+            dao.add(user, history.getCounter());
             session.setAttribute(Vars.RATING_LIST, dao.getRating());
             dispatcher = getServletContext().getRequestDispatcher("/result.jsp");
-        }
-        else
+        } else
             dispatcher = getServletContext().getRequestDispatcher("/game.jsp");
 
-        session.setAttribute(Vars.HISTORY, history);
+        session.setAttribute(Vars.HISTORY, history);//update history
         dispatcher.forward(req, resp);
 
     }

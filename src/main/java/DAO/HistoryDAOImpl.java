@@ -11,11 +11,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static Helpers.DBConnectionHelper.getDBConnectionManager;
+import static Helpers.DBConnectionHelper.getDBConnection;
+
 
 public class HistoryDAOImpl implements HistoryDAO{
     public void add(User user,int counter) {
-        DBConnectionHelper.DBConnectionManager db = getDBConnectionManager();
+        DBConnectionHelper.DBConnection db = getDBConnection();
         try (Connection connection = db.getConnection()) {
             String sqlInsertUser = "INSERT INTO \"History\"(id_user,result) VALUES(?,?)";
             PreparedStatement insertUser = connection.prepareStatement(sqlInsertUser);
@@ -29,19 +30,18 @@ public class HistoryDAOImpl implements HistoryDAO{
     }
     public List<Rating> getRating(){
         List<Rating> ratingList = new ArrayList<>();
-        ResultSet resultSet;
-        DBConnectionHelper.DBConnectionManager db = getDBConnectionManager();
+        DBConnectionHelper.DBConnection db = getDBConnection();
         try (Connection connection = db.getConnection()) {
             String sqlGetRatingView = "SELECT * FROM \"RatingView\"";
             PreparedStatement getRatingView = connection.prepareStatement(sqlGetRatingView);
-            resultSet =  getRatingView.executeQuery();
-            Rating rating = new Rating();
-            while (resultSet.next()){
-                rating.setUser(resultSet.getString("User"));
-                rating.setResult(resultSet.getString("Result"));
-                ratingList.add(rating);
+            try(ResultSet resultSet = getRatingView.executeQuery()){
+                while (resultSet.next()){
+                    Rating rating = new Rating();
+                    rating.setUser(resultSet.getString("User"));
+                    rating.setResult(resultSet.getString("Result"));
+                    ratingList.add(rating);
+                }
             }
-            resultSet.close();
 
         } catch (SQLException e) {
             e.printStackTrace();

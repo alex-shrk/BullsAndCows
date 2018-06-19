@@ -1,6 +1,5 @@
 <%@ page import="Helpers.Vars" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<script src="js/index.js"></script>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -10,32 +9,21 @@
 <body>
 
 <header>
-
-    <H2> Добро пожаловать в игру "Быки и коровы"</H2>
-
+    <h2> Добро пожаловать в игру "Быки и коровы"</h2>
 </header>
 
 <main>
     <div class="loginAndRegister">
         <form id=loginForm action="login" method="post">
             <div>
-                <input class="userForm" id=user_login name=user_login type="text" placeholder="Логин">
-
+                <input required class="userForm" id=user_login name=user_login type="text" placeholder="Логин">
             </div>
             <div>
                 <input class="userForm" id="user_psw" name="user_psw" type="password" placeholder="Пароль">
             </div>
-
+            <input type="submit" class="button loginBtn" name="loginBtn" value="Войти"/>
+            <a class="button registerBtn" href="registration.jsp">Регистрация</a>
         </form>
-        <div>
-            <form action="registration.jsp" method="post">
-                <input class="button loginBtn" name="loginBtn" type="button" value="Войти"
-                       onclick="vefiryAndLogin()"/>
-
-                <input class="button registerBtn" type="submit" value="Регистрация">
-            </form>
-        </div>
-
 
     </div>
 </main>
